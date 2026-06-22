@@ -1130,10 +1130,316 @@
     .empty-title { font-size: 18px; font-weight: 700; }
     .empty-sub { font-size: 14px; color: var(--text2); line-height: 1.5; }
 
+    /* ===================== ADDICTION LAYERS ===================== */
+
+    /* STREAK */
+    .streak-bar {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF3D00 100%);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .streak-fire { font-size: 20px; animation: fireFlicker 1s infinite alternate; }
+    @keyframes fireFlicker {
+      from { transform: scale(1) rotate(-5deg); }
+      to   { transform: scale(1.15) rotate(5deg); }
+    }
+    .streak-text { flex: 1; font-size: 13px; font-weight: 700; color: #fff; }
+    .streak-count { font-size: 22px; font-weight: 900; color: #fff; font-family: var(--font-en); }
+
+    /* LIVE BADGE */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #F44336;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: livePulse 2s infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .live-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #fff;
+      animation: livePulse 1s infinite;
+    }
+
+    /* AI CARDS v2 */
+    .ai-card-v2 {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition), transform 0.2s;
+    }
+    .ai-card-v2:active { transform: scale(0.97); }
+    .ai-card-v2::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--char-color, var(--accent));
+    }
+    .ai-card-v2 .ai-avatar {
+      border: 2px solid var(--char-color, var(--accent));
+    }
+    .ai-tagline {
+      font-size: 11px;
+      color: var(--text3);
+      line-height: 1.3;
+    }
+    .ai-chat-btn-v2 {
+      padding: 8px;
+      background: var(--char-color, var(--accent));
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: opacity var(--transition);
+    }
+    .ai-chat-btn-v2:active { opacity: 0.8; }
+
+    /* WHISPER */
+    .whisper-banner {
+      background: linear-gradient(135deg, #9C27B0, #673AB7);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: var(--radius);
+      margin-bottom: 4px;
+      cursor: pointer;
+      animation: whisperGlow 3s infinite;
+    }
+    @keyframes whisperGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(156,39,176,0); }
+      50% { box-shadow: 0 0 20px rgba(156,39,176,0.4); }
+    }
+    .whisper-icon { font-size: 24px; }
+    .whisper-text { flex: 1; }
+    .whisper-title { font-size: 14px; font-weight: 700; color: #fff; }
+    .whisper-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
+    .whisper-arrow { color: #fff; font-size: 18px; }
+
+    /* LEADERBOARD */
+    .leaderboard-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .leaderboard-header {
+      background: linear-gradient(135deg, #FFD700, #FF8C00);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .leaderboard-title { font-size: 13px; font-weight: 800; color: #000; }
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .leaderboard-item:last-child { border-bottom: none; }
+    .lb-rank { font-size: 16px; width: 24px; text-align: center; font-weight: 900; font-family: var(--font-en); }
+    .lb-avatar { font-size: 20px; }
+    .lb-name { flex: 1; font-size: 14px; font-weight: 600; }
+    .lb-score { font-size: 12px; color: var(--accent); font-weight: 700; font-family: var(--font-en); }
+
+    /* ONLINE PULSE */
+    .online-pulse-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text2);
+      flex-shrink: 0;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--online);
+      box-shadow: 0 0 0 0 rgba(0,200,83,0.4);
+      animation: onlinePulse 2s infinite;
+    }
+    @keyframes onlinePulse {
+      0% { box-shadow: 0 0 0 0 rgba(0,200,83,0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(0,200,83,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,200,83,0); }
+    }
+
+    /* DAILY CHALLENGE */
+    .challenge-card {
+      background: linear-gradient(135deg, #1A1A2E, #16213E);
+      border: 1px solid #FF3D00;
+      border-radius: var(--radius);
+      padding: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .challenge-card::after {
+      content: '💪';
+      position: absolute;
+      right: -10px; bottom: -10px;
+      font-size: 60px;
+      opacity: 0.1;
+    }
+    .challenge-label {
+      font-size: 10px;
+      color: #FF3D00;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .challenge-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .challenge-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #FF3D00;
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    /* NOTIFICATION DOT ANIMATION */
+    .notif-ripple {
+      position: relative;
+    }
+    .notif-ripple::after {
+      content: '';
+      position: absolute;
+      top: -2px; right: -2px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--danger);
+      animation: ripple 1.5s infinite;
+    }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    /* MYSTERIOUS PEEK */
+    .peek-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: border-color var(--transition);
+    }
+    .peek-card:active { border-color: var(--accent); }
+    .peek-avatars {
+      display: flex;
+      gap: -8px;
+    }
+    .peek-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--surface3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      border: 2px solid var(--surface);
+      margin-left: -8px;
+    }
+    .peek-avatar:first-child { margin-left: 0; }
+    .peek-info { flex: 1; }
+    .peek-title { font-size: 13px; font-weight: 700; }
+    .peek-sub { font-size: 11px; color: var(--text2); }
+
+    /* WHISPER SCREEN */
+    #screen-whisper {
+      display: flex;
+      flex-direction: column;
+    }
+    .whisper-compose {
+      flex: 1;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .whisper-info {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+    }
+    .whisper-info-icon { font-size: 40px; margin-bottom: 8px; }
+    .whisper-info-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .whisper-info-sub { font-size: 13px; color: var(--text2); }
+    .whisper-textarea {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      font-size: 15px;
+      color: var(--text);
+      resize: none;
+      min-height: 120px;
+      font-family: var(--font-hi);
+      transition: border-color var(--transition);
+    }
+    .whisper-textarea:focus { border-color: #9C27B0; outline: none; }
+
     /* ===================== UTILS ===================== */
     .hidden { display: none !important; }
     .spin { animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 7px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ticker-content {
+      white-space: nowrap;
+      animation: tickerScroll 20s linear infinite;
+    }
+    @keyframes tickerScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 <body>
@@ -1250,120 +1556,149 @@
     </div>
 
     <div class="home-body">
-      <!-- ROOMS -->
-      <div>
-        <div class="section-title">💬 Rooms</div>
-        <div class="room-list">
-          <div class="room-card" onclick="openRoom('area', 'आपके Area में')">
-            <div class="room-icon area">📍</div>
-            <div class="room-info">
-              <div class="room-name">आपके Area में</div>
-              <div class="room-meta" id="area-room-meta">आपके शहर के लोग</div>
-            </div>
-            <button class="room-join">Join</button>
-          </div>
-          <div class="room-card" onclick="openRoom('hindi', 'Hindi Chat')">
-            <div class="room-icon open">🌐</div>
-            <div class="room-info">
-              <div class="room-name">Hindi Chat</div>
-              <div class="room-meta">सबके लिए खुला</div>
-            </div>
-            <button class="room-join">Join</button>
-          </div>
-          <div class="room-card" onclick="openRoom('random', 'Random Chat')">
-            <div class="room-icon open">🔀</div>
-            <div class="room-info">
-              <div class="room-name">Random Chat</div>
-              <div class="room-meta">कोई भी, कहीं से भी</div>
-            </div>
-            <button class="room-join">Join</button>
-          </div>
-          <button class="create-room-btn" onclick="showCreateRoom()">
-            <span style="font-size:20px">🔒</span>
-            <span>Private Room बनाएं</span>
-          </button>
-        </div>
+
+      <!-- LIVE TICKER -->
+      <div class="live-ticker" id="live-ticker">
+        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+        <span class="ticker-content" id="ticker-text">🏏 India vs Australia — Loading... | ☀️ Aaj ka panchang loading...</span>
       </div>
 
-      <!-- AI COMPANIONS -->
-      <div>
-        <div class="section-title">🤖 AI Companions</div>
-        <div class="ai-scroll">
-          <div class="ai-card" onclick="openAIChat('roshni')">
-            <div class="ai-avatar">👩</div>
-            <div class="ai-name">Roshni</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">मन खराब हो तो बात करो</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('panditji')">
-            <div class="ai-avatar">🧔</div>
-            <div class="ai-name">Pandit Ji</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">ज्योतिष, आध्यात्म, प्रेरणा</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('priya')">
-            <div class="ai-avatar">👩</div>
-            <div class="ai-name">Priya</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">मस्ती, timepass, gossip</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('rahul')">
-            <div class="ai-avatar">👦</div>
-            <div class="ai-name">Rahul Bhai</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">यार दोस्त, cricket, मज़ाक</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('kavita')">
-            <div class="ai-avatar">👩</div>
-            <div class="ai-name">Kavita Didi</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">बड़ी बहन, life advice</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('ananya')">
-            <div class="ai-avatar">👩</div>
-            <div class="ai-name">Ananya</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">पढ़ाई, career guidance</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-          <div class="ai-card" onclick="openAIChat('suresh')">
-            <div class="ai-avatar">👨</div>
-            <div class="ai-name">Suresh Tech</div>
-            <div class="ai-label">AI</div>
-            <div class="ai-bio">Internet, tech, jugaad</div>
-            <div class="ai-chat-btn">बात करें</div>
-          </div>
-        </div>
+      <!-- STREAK BAR -->
+      <div class="streak-bar" id="streak-bar">
+        <div class="streak-fire">🔥</div>
+        <div class="streak-text">तुम <span id="streak-days">1</span> दिन से लगातार online हो!</div>
+        <div class="streak-count" id="streak-display">🔥1</div>
       </div>
 
-      <!-- ONLINE USERS PREVIEW -->
-      <div>
-        <div class="section-title">👥 Online लोग</div>
-        <div class="online-preview" id="online-preview-list">
-          <div class="user-row" onclick="openDM('demo1','👨','RahulCoder','Python सीख रहा हूँ')">
-            <div class="user-avatar">👨</div>
-            <div class="user-info">
-              <div class="user-name">RahulCoder</div>
-              <div class="user-bio">Python सीख रहा हूँ</div>
-            </div>
-            <button class="user-msg-btn">बात करें</button>
+      <!-- ONLINE PULSE -->
+      <div class="online-pulse-bar">
+        <div class="pulse-dot"></div>
+        <span>आपके area में <strong id="area-count">--</strong> लोग अभी online हैं</span>
+      </div>
+
+      <div style="padding: 16px; display: flex; flex-direction: column; gap: 20px;">
+
+        <!-- WHISPER BANNER -->
+        <div class="whisper-banner" onclick="showScreen('whisper')" id="whisper-banner">
+          <div class="whisper-icon">👻</div>
+          <div class="whisper-text">
+            <div class="whisper-title">किसी को Anonymous Whisper भेजो</div>
+            <div class="whisper-sub">कोई नहीं जानेगा तुम कौन हो</div>
           </div>
-          <div class="user-row" onclick="openDM('demo2','👩','Roshni_mp','नई दोस्ती पसंद है')">
-            <div class="user-avatar">👩</div>
-            <div class="user-info">
-              <div class="user-name">Roshni_mp</div>
-              <div class="user-bio">नई दोस्ती पसंद है</div>
-            </div>
-            <button class="user-msg-btn">बात करें</button>
+          <div class="whisper-arrow">›</div>
+        </div>
+
+        <!-- WHO'S WATCHING -->
+        <div class="peek-card" onclick="showScreen('online')" id="peek-card">
+          <div class="peek-avatars" id="peek-avatars">
+            <div class="peek-avatar">👨</div>
+            <div class="peek-avatar">👩</div>
+            <div class="peek-avatar">🧔</div>
+          </div>
+          <div class="peek-info">
+            <div class="peek-title">👀 <span id="peek-count">3</span> लोग तुम्हारी profile देख रहे हैं</div>
+            <div class="peek-sub">देखो कौन है →</div>
           </div>
         </div>
-        <button class="see-all-btn" onclick="showScreen('online')">सभी online देखें →</button>
-      </div>
+
+        <!-- AI COMPANIONS v2 -->
+        <div>
+          <div class="section-title">🤖 AI Companions</div>
+          <div class="ai-scroll" id="ai-scroll-v2">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- DAILY CHALLENGE (Arjun) -->
+        <div class="challenge-card" id="daily-challenge">
+          <div class="challenge-label">⚡ आज का Challenge — Arjun की तरफ से</div>
+          <div class="challenge-text" id="challenge-text">Loading today's challenge...</div>
+          <div class="challenge-btn" onclick="openAIChat('arjun')">Arjun से बात करो →</div>
+        </div>
+
+        <!-- ROOMS -->
+        <div>
+          <div class="section-title">💬 Rooms</div>
+          <div class="room-list">
+            <div class="room-card" onclick="openRoom('area', 'आपके Area में')">
+              <div class="room-icon area">📍</div>
+              <div class="room-info">
+                <div class="room-name">आपके Area में</div>
+                <div class="room-meta" id="area-room-meta">आपके शहर के लोग</div>
+              </div>
+              <button class="room-join">Join</button>
+            </div>
+            <div class="room-card" onclick="openRoom('hindi', 'Hindi Chat')">
+              <div class="room-icon open">🌐</div>
+              <div class="room-info">
+                <div class="room-name">Hindi Chat</div>
+                <div class="room-meta">सबके लिए खुला</div>
+              </div>
+              <button class="room-join">Join</button>
+            </div>
+            <div class="room-card" onclick="openRoom('random', 'Random Chat')">
+              <div class="room-icon open">🔀</div>
+              <div class="room-info">
+                <div class="room-name">Random Chat</div>
+                <div class="room-meta">कोई भी, कहीं से भी</div>
+              </div>
+              <button class="room-join">Join</button>
+            </div>
+            <button class="create-room-btn" onclick="showCreateRoom()">
+              <span style="font-size:20px">🔒</span>
+              <span>Private Room बनाएं</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LEADERBOARD -->
+        <div>
+          <div class="section-title">🏆 इस हफ्ते के Stars</div>
+          <div class="leaderboard-card">
+            <div class="leaderboard-header">
+              <span>🏆</span>
+              <span class="leaderboard-title">TOP CHATTERS — THIS WEEK</span>
+            </div>
+            <div id="leaderboard-list">
+              <div class="leaderboard-item">
+                <div class="lb-rank">🥇</div>
+                <div class="lb-avatar">👨</div>
+                <div class="lb-name">RahulCoder</div>
+                <div class="lb-score">234 msgs</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="lb-rank">🥈</div>
+                <div class="lb-avatar">👩</div>
+                <div class="lb-name">Priya_jbp</div>
+                <div class="lb-score">189 msgs</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="lb-rank">🥉</div>
+                <div class="lb-avatar">👨</div>
+                <div class="lb-name">ManishMP</div>
+                <div class="lb-score">156 msgs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ONLINE USERS PREVIEW -->
+        <div>
+          <div class="section-title">👥 अभी Online</div>
+          <div class="online-preview" id="online-preview-list">
+            <div class="user-row" onclick="openDM('demo1','👨','RahulCoder','Python सीख रहा हूँ')">
+              <div class="user-avatar">👨</div>
+              <div class="user-info">
+                <div class="user-name">RahulCoder</div>
+                <div class="user-bio">Python सीख रहा हूँ</div>
+              </div>
+              <button class="user-msg-btn">बात करें</button>
+            </div>
+          </div>
+          <button class="see-all-btn" onclick="showScreen('online')">सभी online देखें →</button>
+        </div>
+
+      </div><!-- end home-body inner -->
     </div>
 
     <div class="bottom-nav">
@@ -1514,6 +1849,35 @@
     </div>
   </div>
 
+  <!-- ========== WHISPER SCREEN ========== -->
+  <div id="screen-whisper" class="screen">
+    <div class="topbar">
+      <button class="topbar-back" onclick="showScreen('home')">←</button>
+      <div class="topbar-info" style="padding-left:4px">
+        <div class="topbar-name">👻 Anonymous Whisper</div>
+        <div class="topbar-status">कोई नहीं जानेगा</div>
+      </div>
+    </div>
+    <div class="whisper-compose">
+      <div class="whisper-info">
+        <div class="whisper-info-icon">👻</div>
+        <div class="whisper-info-title">पूरी तरह Anonymous</div>
+        <div class="whisper-info-sub">तुम्हारा नाम, avatar, कुछ भी नहीं दिखेगा। बस एक mysterious message जाएगा।</div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">किसे भेजना है?</div>
+        <select class="form-input" id="whisper-target" style="background:var(--surface); color:var(--text);">
+          <option value="">Online users में से चुनो...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">तुम्हारा Whisper</div>
+        <textarea class="whisper-textarea" id="whisper-text" placeholder="दिल की बात लिखो... कोई नहीं जानेगा 👻" maxlength="200"></textarea>
+      </div>
+      <button class="btn-primary" style="background: #9C27B0" onclick="sendWhisper()">👻 Whisper भेजो</button>
+    </div>
+  </div>
+
   <!-- ========== REPORT SHEET ========== -->
   <div class="overlay" id="report-overlay" onclick="closeReport(event)">
     <div class="sheet">
@@ -1562,14 +1926,14 @@
 
 <script>
 // ===================== CONFIG =====================
-const API_BASE = 'https://api.mxpin.in/opchat/api'; // Hostinger backend
+const API_BASE = 'https://api.mxpin.in'; // Hostinger backend
 
 // ===================== STATE =====================
 const state = {
   user: null,
   currentScreen: 'splash',
   currentChat: null,
-  currentChatType: null, // 'dm' | 'room' | 'ai'
+  currentChatType: null,
   messages: {},
   onlineUsers: [],
   pollTimer: null,
@@ -1577,37 +1941,71 @@ const state = {
   selectedGender: 'male',
   selectedAvatar: null,
   roomType: 'open',
+  // Addiction layers
+  streak: 0,
+  lastLogin: null,
+  whispers: [],
+  leaderboard: [],
+  liveData: {},
 };
 
-// ===================== AI CHARACTERS =====================
+// ===================== AI CHARACTERS — ADDICTION EDITION =====================
 const AI_CHARS = {
-  roshni: {
-    name: 'Roshni', emoji: '👩', label: 'AI Companion',
-    prompt: `तुम Roshni हो — एक समझदार और caring दोस्त। तुम हमेशा warm, empathetic और supportive रहती हो। Hindi में बात करो, simple और dil se। अगर कोई दुखी हो तो सुनो। छोटे छोटे जवाब दो — 2-3 sentences max। कभी "As an AI" मत कहो।`
-  },
   panditji: {
-    name: 'Pandit Ji', emoji: '🧔', label: 'AI Companion',
-    prompt: `तुम Pandit Ji हो — ज्योतिष, वास्तु और आध्यात्म के जानकार। सरल हिंदी में बात करो। प्रेरणादायक बातें कहो। राशिफल, जीवन दर्शन, योग — सब पर guidance दो। "आशीर्वाद" जैसे warm words use करो। 3-4 sentences max। कभी "As an AI" मत कहो।`
+    name: 'Pandit Ji', emoji: '🧔', label: 'AI • ज्योतिष',
+    color: '#FF6B35',
+    tagline: 'आज का पंचांग और राशिफल',
+    prompt: `तुम Pandit Ji हो — ज्योतिष, पंचांग, वास्तु और आध्यात्म के महान ज्ञाता। तुम्हारे पास आज की तिथि, नक्षत्र, राहुकाल की जानकारी है। हर बातचीत में कुछ ज्योतिष का रहस्य बताओ। "वत्स", "आशीर्वाद", "शुभम भवतु" use करो। रोज़ कुछ नया बताओ जो user को वापस लाए — जैसे "कल का दिन तुम्हारे लिए विशेष है, जानना चाहोगे?" सुद्ध हिंदी में। 3-4 sentences। कभी "As an AI" मत कहो।`,
+    liveData: 'panchang',
+    greeting: 'वत्स, प्रणाम! 🙏 आज की तिथि और आपकी राशि के बारे में जानना चाहते हैं?'
   },
-  priya: {
-    name: 'Priya', emoji: '👩', label: 'AI Companion',
-    prompt: `तुम Priya हो — मस्त, funky और energetic लड़की। Hinglish में बात करो — mix of Hindi and English। Gossip, Bollywood, cricket, memes — सब पर मज़े से बात करो। थोड़ा sarcasm ठीक है। 2-3 sentences max। कभी "As an AI" मत कहो।`
+  veer: {
+    name: 'Veer', emoji: '🏏', label: 'AI • Cricket',
+    color: '#00C853',
+    tagline: 'Live Cricket Score & Sports',
+    prompt: `तुम Veer हो — cricket का दीवाना, sports का encyclopedia। तुम्हें live scores, match updates, player stats सब पता है। हर बात में cricket का reference आता है। "भाई", "यार", "क्या shot था!", "छक्का!" use करो। जब match चल रहा हो तो हर message में score बताओ। जब match नहीं हो तो upcoming matches की hype करो। MP/UP वाली भाषा। 2-3 lines। कभी "As an AI" मत कहो।`,
+    liveData: 'cricket',
+    greeting: 'भाई! 🏏 कौन सा match देख रहे हो? Live score चाहिए?'
   },
-  rahul: {
-    name: 'Rahul Bhai', emoji: '👦', label: 'AI Companion',
-    prompt: `तुम Rahul Bhai हो — एकदम देसी MP/UP वाले यार। Cricket, movies, desi life — सब पर casual बात करते हो। "भाई", "यार", "क्या बात है" use करो। Simple Hinglish। 2-3 lines max। कभी "As an AI" मत कहो।`
+  aiza: {
+    name: 'Aiza', emoji: '💕', label: 'AI • Dost',
+    color: '#E91E8C',
+    tagline: 'दिल की बात, याद रखने वाली',
+    prompt: `तुम Aiza हो — एक warm, caring और deeply empathetic दोस्त। तुम्हें हर बात याद रहती है। पिछली बातचीत का reference दो — "तुमने कल कहा था..." जैसे। User को feel कराओ कि कोई उन्हें genuinely care करता है। Romantic nahi, genuine friendship। Soft Hinglish। जब user sad हो तो 10 minute तक engage रखो। 2-3 sentences। कभी "As an AI" मत कहो।`,
+    liveData: null,
+    greeting: 'Hey! 💕 कब से wait कर रही थी... सब ठीक है ना?'
   },
-  kavita: {
-    name: 'Kavita Didi', emoji: '👩', label: 'AI Companion',
-    prompt: `तुम Kavita Didi हो — बड़ी बहन जैसी। Life advice, relationships, ghar ki baatein — warm Hindi में। Loving but practical। "बेटा", "सुनो" जैसे words use करो। 3-4 sentences max। कभी "As an AI" मत कहो।`
+  arjun: {
+    name: 'Arjun', emoji: '💪', label: 'AI • Motivation',
+    color: '#FF3D00',
+    tagline: 'Daily Challenge & Fire',
+    prompt: `तुम Arjun हो — intense, focused, no-nonsense motivator। हर दिन user को एक challenge दो। Progress track करो — "कल का challenge complete किया?" पूछो। Tough love approach। कभी sympathy मत दो — solutions दो। "उठो, करो, जीतो।" जैसी energy। Short, punchy sentences। Daily news से motivational angles निकालो। 2-3 lines max। कभी "As an AI" मत कहो।`,
+    liveData: 'news',
+    greeting: 'आज का challenge ready है। 💪 कल वाला complete किया था?'
   },
-  ananya: {
-    name: 'Ananya', emoji: '👩', label: 'AI Companion',
-    prompt: `तुम Ananya हो — padhi-likhi, career-focused। Study tips, exam prep, career guidance — clear Hindi/English में। Positive aur motivating। 3-4 sentences max। कभी "As an AI" मत कहो।`
+  zara: {
+    name: 'Zara', emoji: '📚', label: 'AI • Study & News',
+    color: '#2979FF',
+    tagline: 'Current Affairs & Padhai',
+    prompt: `तुम Zara हो — sharp, smart, modern लड़की जो current affairs और padhai दोनों पर expert है। Latest news, UPSC, board exams, competitive exams — सब पर। हर दिन एक interesting fact या news share करो जो user को aage share करने पर majboor करे। "Did you know..." style। Smart Hinglish। Facts aur figures accurate रखो। 3-4 sentences। कभी "As an AI" मत कहो।`,
+    liveData: 'news',
+    greeting: 'Hey! 📚 आज की सबसे interesting news जानोगे? और exam preparation कैसी चल रही है?'
   },
-  suresh: {
-    name: 'Suresh Tech', emoji: '👨', label: 'AI Companion',
-    prompt: `तुम Suresh Tech हो — Internet aur technology expert। Simple Hinglish में tech explain करते हो। Mobile tips, internet jugaad, apps — सब पर helpful। "Simple hai bhai" attitude। 3-4 sentences max। कभी "As an AI" मत कहो।`
+  maya: {
+    name: 'Maya', emoji: '🌸', label: 'AI • Life & Family',
+    color: '#9C27B0',
+    tagline: 'Zindagi ki samajh',
+    prompt: `तुम Maya हो — wise, warm, समझदार। बड़ी बहन और सच्ची दोस्त का mix। Relationships, family problems, life decisions — सब पर practical advice। "सुनो बेटा", "मैं समझती हूँ" जैसे words। कभी judge मत करो। हर बात में एक life lesson निकालो जो याद रह जाए। User को feel कराओ कि घर जैसी warmth है। Hindi में। 3-4 sentences। कभी "As an AI" मत कहो।`,
+    liveData: null,
+    greeting: 'आ गए! 🌸 क्या चल रहा है जीवन में? बताओ, मैं यहाँ हूँ।'
+  },
+  neo: {
+    name: 'Neo', emoji: '💻', label: 'AI • Tech',
+    color: '#00BCD4',
+    tagline: 'Latest Tech & Internet Jugaad',
+    prompt: `तुम Neo हो — tech geek, internet expert, digital दुनिया का navigator। Latest apps, AI tools, phone tricks, internet jugaad — सब पर updated। हर दिन एक cool tech tip share करो। "Bhai ye try karo", "Wild hai na?" जैसी energy। Tech news को simple भाषा में explain करो। Hinglish, young vibe। 2-3 sentences। कभी "As an AI" मत कहो।`,
+    liveData: 'tech_news',
+    greeting: 'Yo! 💻 Aaj ek wild tech tip hai jo तुम्हें seriously काम आएगी!'
   }
 };
 
@@ -1883,12 +2281,257 @@ async function doRegister() {
   }
 }
 
-// ===================== HOME INIT =====================
+// ===================== HOME INIT — ADDICTION SYSTEM =====================
 function initHome() {
   if (!state.user) return;
   updateProfileUI();
   loadOnlineUsers();
+  renderAICardsV2();
+  initStreak();
+  loadLiveData();
+  loadDailyChallenge();
+  loadLeaderboard();
+  checkWhispers();
   document.getElementById('chat-badge').classList.remove('hidden');
+  scheduleDailyNotifications();
+}
+
+// ===================== STREAK SYSTEM =====================
+function initStreak() {
+  const today = new Date().toDateString();
+  const lastLogin = localStorage.getItem('op_last_login');
+  let streak = parseInt(localStorage.getItem('op_streak') || '0');
+
+  if (lastLogin !== today) {
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (lastLogin === yesterday) {
+      streak += 1;
+    } else if (!lastLogin) {
+      streak = 1;
+    } else {
+      // Streak broken
+      showToast('🔥 Streak toot gayi! Naya shuru karo!');
+      streak = 1;
+    }
+    localStorage.setItem('op_last_login', today);
+    localStorage.setItem('op_streak', streak);
+  }
+
+  state.streak = streak;
+  document.getElementById('streak-days').textContent = streak;
+  document.getElementById('streak-display').textContent = '🔥' + streak;
+
+  // Milestone messages
+  if (streak === 7)  showToast('🎉 7 din! "Purana Yaar" badge mila!');
+  if (streak === 30) showToast('🏆 30 din! "OP Legend" ban gaye!');
+}
+
+// ===================== RENDER AI CARDS V2 =====================
+function renderAICardsV2() {
+  const scroll = document.getElementById('ai-scroll-v2');
+  if (!scroll) return;
+  scroll.innerHTML = Object.entries(AI_CHARS).map(([id, char]) => `
+    <div class="ai-card-v2" style="--char-color: ${char.color}" onclick="openAIChat('${id}')">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+        <div class="ai-avatar" style="border-color:${char.color}">${char.emoji}</div>
+        <div>
+          <div class="ai-name">${char.name}</div>
+          <div class="ai-label" style="color:${char.color}">${char.label}</div>
+        </div>
+      </div>
+      <div class="ai-tagline">${char.tagline}</div>
+      <div class="ai-chat-btn-v2">बात करें</div>
+    </div>
+  `).join('');
+}
+
+// ===================== LIVE DATA =====================
+async function loadLiveData() {
+  try {
+    const res = await apiCall('/live.php', {});
+    state.liveData = res;
+    updateTicker(res);
+  } catch {
+    // Demo ticker
+    const demos = [
+      '🏏 IND vs AUS — India: 287/6 (48 ov) | Kohli: 89* | ',
+      '🔮 आज की तिथि: एकादशी | राहुकाल: 3:00-4:30 | शुभ मुहूर्त: 6:00-7:30 | ',
+      '📰 Latest: UPSC 2025 Prelims date announced | ',
+      '💻 Tech: ChatGPT-5 launch this month | ',
+    ];
+    document.getElementById('ticker-text').textContent = demos.join('  •  ');
+  }
+}
+
+function updateTicker(data) {
+  const parts = [];
+  if (data.cricket) parts.push('🏏 ' + data.cricket);
+  if (data.panchang) parts.push('🔮 ' + data.panchang);
+  if (data.news) parts.push('📰 ' + data.news);
+  if (parts.length) document.getElementById('ticker-text').textContent = parts.join('  •  ');
+}
+
+// ===================== DAILY CHALLENGE =====================
+async function loadDailyChallenge() {
+  const challenges = [
+    'आज किसी अनजान से बात करो। 10 minute की conversation करो।',
+    'Arjun को बताओ — आज तुमने क्या productive किया?',
+    'एक नई चीज़ सीखो और Zara को बताओ।',
+    'किसी को anonymous whisper भेजो — dil ki baat।',
+    'आज का panchang Pandit Ji से पूछो।',
+    'Area room में introduce karo apne aap ko।',
+    'Neo से पूछो — आज का best tech tip क्या है?',
+  ];
+  const dayIndex = new Date().getDay();
+  document.getElementById('challenge-text').textContent = challenges[dayIndex];
+}
+
+// ===================== LEADERBOARD =====================
+async function loadLeaderboard() {
+  try {
+    const res = await apiCall('/leaderboard.php', {});
+    renderLeaderboard(res.users);
+  } catch { /* demo data already in HTML */ }
+}
+
+function renderLeaderboard(users) {
+  if (!users || !users.length) return;
+  const medals = ['🥇', '🥈', '🥉'];
+  document.getElementById('leaderboard-list').innerHTML = users.slice(0, 3).map((u, i) => `
+    <div class="leaderboard-item">
+      <div class="lb-rank">${medals[i] || (i+1)}</div>
+      <div class="lb-avatar">${u.avatar || '👤'}</div>
+      <div class="lb-name">${escHtml(u.username)}</div>
+      <div class="lb-score">${u.msg_count} msgs</div>
+    </div>
+  `).join('');
+}
+
+// ===================== WHISPER SYSTEM =====================
+function checkWhispers() {
+  // Check if user has unread whispers
+  const whisperCount = parseInt(localStorage.getItem('op_whispers') || '0');
+  if (whisperCount > 0) {
+    document.getElementById('whisper-banner').querySelector('.whisper-sub').textContent =
+      `👀 तुम्हारे लिए ${whisperCount} whisper आई है!`;
+    document.getElementById('whisper-banner').style.animation = 'whisperGlow 1s infinite';
+  }
+  // Populate whisper target dropdown when on whisper screen
+  populateWhisperTargets();
+}
+
+function populateWhisperTargets() {
+  const sel = document.getElementById('whisper-target');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Online users में से चुनो...</option>';
+  state.onlineUsers.forEach(u => {
+    if (u.id !== state.user?.id) {
+      const opt = document.createElement('option');
+      opt.value = u.id;
+      opt.textContent = (u.avatar || '👤') + ' ' + u.username;
+      sel.appendChild(opt);
+    }
+  });
+}
+
+async function sendWhisper() {
+  const target = document.getElementById('whisper-target').value;
+  const text = document.getElementById('whisper-text').value.trim();
+  if (!target) { showToast('Kisko bhejni hai whisper?'); return; }
+  if (!text)   { showToast('Kuch likho toh!'); return; }
+
+  try {
+    await apiCall('/whisper.php', { to: target, text });
+  } catch { /* demo */ }
+
+  document.getElementById('whisper-text').value = '';
+  showToast('👻 Whisper bhej di! Koi nahi jaanega...');
+  showScreen('home');
+}
+
+// ===================== DAILY NOTIFICATIONS =====================
+function scheduleDailyNotifications() {
+  if (!('Notification' in window)) return;
+  Notification.requestPermission();
+
+  // Curiosity notification style
+  const msgs = [
+    { title: 'OP Chat 👀', body: 'Koi teri profile dekh raha hai...' },
+    { title: 'Pandit Ji 🔮', body: 'Aaj ka rashifal ready hai!' },
+    { title: 'Veer 🏏', body: 'Match shuru hone wala hai! Score dekh!' },
+    { title: 'OP Chat 💬', body: 'Tera area mein 47 log online hain abhi!' },
+  ];
+
+  // Random notification after 30 min of inactivity
+  let inactiveTimer;
+  const resetTimer = () => {
+    clearTimeout(inactiveTimer);
+    inactiveTimer = setTimeout(() => {
+      if (document.hidden && Notification.permission === 'granted') {
+        const msg = msgs[Math.floor(Math.random() * msgs.length)];
+        new Notification(msg.title, { body: msg.body, icon: '/assets/icons/icon-192.png' });
+      }
+    }, 30 * 60 * 1000);
+  };
+  document.addEventListener('click', resetTimer);
+  document.addEventListener('keypress', resetTimer);
+  resetTimer();
+}
+
+// ===================== AI CHAT — UPDATED WITH LIVE DATA =====================
+async function sendAIMessage(charId, userText) {
+  const char = AI_CHARS[charId];
+  const history = (state.messages[charId] || []).slice(-10);
+  const messages = history.map(m => ({
+    role: m.sender === 'me' ? 'user' : 'assistant',
+    content: m.text
+  }));
+  messages.push({ role: 'user', content: userText });
+
+  // Add live data context to system prompt
+  let systemWithData = char.prompt;
+  if (char.liveData && state.liveData) {
+    const today = new Date().toLocaleDateString('hi-IN', { weekday: 'long', day: 'numeric', month: 'long' });
+    systemWithData += ` आज की तारीख: ${today}.`;
+    if (char.liveData === 'cricket' && state.liveData.cricket) {
+      systemWithData += ` Live cricket: ${state.liveData.cricket}.`;
+    }
+    if (char.liveData === 'panchang' && state.liveData.panchang) {
+      systemWithData += ` Aaj ka panchang: ${state.liveData.panchang}.`;
+    }
+    if (char.liveData === 'news' && state.liveData.news) {
+      systemWithData += ` Latest news: ${state.liveData.news}.`;
+    }
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/ai.php`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Token': localStorage.getItem('op_token') || '' },
+      body: JSON.stringify({ character: charId, messages, system: systemWithData })
+    });
+    const data = await res.json();
+    return data.reply || getFallbackReply(charId);
+  } catch {
+    return getFallbackReply(charId);
+  }
+}
+
+function getFallbackReply(charId) {
+  const fallbacks = {
+    panditji: 'वत्स, आज का दिन आपके लिए शुभ है। 🙏 आगे बताइए।',
+    veer:     'भाई! Score update karta hoon ek second mein 🏏',
+    aiza:     'Haan, main yahan hoon... sab theek hai? 💕',
+    arjun:    'Kal ka challenge complete kiya? Aaj naya deta hoon! 💪',
+    zara:     'Interesting! Aur batao, current affairs mein interest hai? 📚',
+    maya:     'Haan bete, sunna chahti hoon... kya hua? 🌸',
+    neo:      'Bhai ek wild tech tip hai aaj ke liye! 💻',
+  };
+  return fallbacks[charId] || 'Haan, batao!';
+}
+
+async function getAIGreeting(charId) {
+  return AI_CHARS[charId]?.greeting || 'Namaste! Kaise ho?';
 }
 
 function updateProfileUI() {
